@@ -22,6 +22,7 @@ app.get("/", function(req,res) {
    res.redirect("/blogs"); 
 });
 
+//INDEX
 app.get("/blogs", function(req,res) {
     Blog.find({}, function(err, blogs) {
        if(err) {
@@ -29,6 +30,22 @@ app.get("/blogs", function(req,res) {
        } else {
            res.render("index", {blogs: blogs});
        }
+    });
+});
+
+//NEW
+app.get("/blogs/new", function(req,res) {
+   res.render("new");
+});
+
+//CREATE
+app.post("/blogs", function(req,res) {
+    Blog.create(req.body.blog, function(err,newBlog) {
+        if(err) {
+            res.render("new");
+        } else {
+            res.redirect("/blogs");
+        }
     });
 });
 
