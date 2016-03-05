@@ -5,3 +5,11 @@ i.icon {
 .container.main {
     margin-top: 7.0em;
 }
+
+.container.homepage {
+    margin-top: 68px;;
+}
+
+#delete {
+    display: inline;
+}
